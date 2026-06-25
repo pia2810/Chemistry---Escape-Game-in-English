@@ -125,6 +125,23 @@
       </form>
     </dialog>
 
+    <dialog id="pinDialog">
+      <form method="dialog" id="pinForm">
+        <header>
+          <h2>Teacher PIN</h2>
+          <button class="icon-button" value="close" aria-label="Close" type="submit">×</button>
+        </header>
+        <div class="teacher-content">
+          <label>
+            Enter PIN
+            <input id="teacherPin" type="password" autocomplete="off" />
+          </label>
+          <p id="pinFeedback" class="feedback" aria-live="polite"></p>
+          <button class="primary-button" value="unlock" type="submit">Unlock teacher key</button>
+        </div>
+      </form>
+    </dialog>
+
     <script src="app.js"></script>
   </body>
 </html>

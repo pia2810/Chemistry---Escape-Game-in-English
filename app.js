@@ -482,6 +482,7 @@ const state = {
 };
 
 const storageKey = "chemEscapeAdvancedStateV2";
+const teacherPin = "P10";
 
 function save() {
   localStorage.setItem(storageKey, JSON.stringify(state));
@@ -823,6 +824,22 @@ document.getElementById("resetButton").addEventListener("click", () => {
 });
 
 document.getElementById("teacherToggle").addEventListener("click", () => {
+  document.getElementById("teacherPin").value = "";
+  document.getElementById("pinFeedback").textContent = "";
+  document.getElementById("pinFeedback").className = "feedback";
+  document.getElementById("pinDialog").showModal();
+});
+
+document.getElementById("pinForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const enteredPin = document.getElementById("teacherPin").value.trim();
+  const feedback = document.getElementById("pinFeedback");
+  if (enteredPin.toUpperCase() !== teacherPin) {
+    feedback.className = "feedback bad";
+    feedback.textContent = "Wrong PIN.";
+    return;
+  }
+  document.getElementById("pinDialog").close();
   renderTeacherKey();
   document.getElementById("teacherDialog").showModal();
 });
